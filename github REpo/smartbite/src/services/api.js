@@ -146,19 +146,23 @@ export const menuAPI = {
     return { data: item };
   }),
   createMenuItem: (data) => api.post('/api_manager.php?action=add_menu_item', {
-    name: data.name,
-    description: data.description,
+    name: data.item_name,
+    description: data.item_description,
     category: data.category,
-    price: data.price,
-    available: data.available
+    price: data.item_price,
+    prep_time: data.prep_time,
+    image: data.image,
+    available: data.is_available !== undefined ? data.is_available : true
   }),
   updateMenuItem: (id, data) => api.post('/api_manager.php?action=update_menu_item', {
     menu_id: id,
-    name: data.name,
-    description: data.description,
+    name: data.item_name,
+    description: data.item_description,
     category: data.category,
-    price: data.price,
-    available: data.available
+    price: data.item_price,
+    prep_time: data.prep_time,
+    image: data.image,
+    available: data.is_available
   }),
   deleteMenuItem: (id) => api.post('/api_manager.php?action=delete_menu_item', {
     menu_id: id

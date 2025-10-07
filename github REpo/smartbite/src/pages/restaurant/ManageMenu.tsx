@@ -28,16 +28,20 @@ export default function ManageMenu() {
   }, [user]);
 
   useEffect(() => {
-    if (myRestaurant) {
+    if (myRestaurant?.id) {
       fetchMenuItems(myRestaurant.id);
     }
-  }, [myRestaurant]);
+  }, [myRestaurant?.id]);
 
   const categories = ['Main Course', 'Appetizer', 'Dessert', 'Beverages', 'Seafood', 'Vegetarian', 'Chicken', 'Healthy', 'Wings', 'Salads'];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!myRestaurant) return;
+
+    if (!myRestaurant?.id) {
+      alert('Restaurant not loaded yet. Please try again.');
+      return;
+    }
 
     try {
       const itemData = {

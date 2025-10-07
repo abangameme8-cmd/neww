@@ -38,11 +38,16 @@ export function MenuProvider({ children }: { children: React.ReactNode }) {
   const clearError = () => setError(null);
 
   const fetchMenuItems = async (restaurantId: string) => {
+    if (!restaurantId) {
+      console.error('❌ Restaurant ID is required to fetch menu items');
+      return;
+    }
+
     try {
       setLoading(true);
       setError(null);
       console.log(`🔄 Fetching menu for restaurant ${restaurantId}...`);
-      
+
       const response = await menuAPI.getMenuItems(restaurantId);
       const items = response.data || [];
       
