@@ -34,10 +34,10 @@ export default function RestaurantDashboard() {
   }, [user]);
 
   useEffect(() => {
-    if (myRestaurant) {
+    if (myRestaurant?.id) {
       fetchMenuItems(myRestaurant.id);
     }
-  }, [myRestaurant]);
+  }, [myRestaurant?.id]);
 
   const availableCategories = ['Traditional', 'African', 'French', 'Fine Dining', 'Chicken', 'Fast Food', 'Healthy', 'Salads', 'Seafood', 'Vegetarian', 'Beverages', 'Desserts'];
 
