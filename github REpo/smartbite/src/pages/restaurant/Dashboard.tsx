@@ -5,7 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useRestaurants } from '../../contexts/RestaurantContext';
 import { useMenu } from '../../contexts/MenuContext';
 import { cameroonianTowns } from '../../data/mockData';
-import { UtensilsCrossed, ShoppingBag, DollarSign, Clock, TrendingUp, Plus, Eye, MapPin, Phone, X, AlertCircle } from 'lucide-react';
+import { UtensilsCrossed, ShoppingBag, DollarSign, Clock, TrendingUp, Plus, Eye, MapPin, Phone, X, CircleAlert as AlertCircle } from 'lucide-react';
 
 export default function RestaurantDashboard() {
   const { user } = useAuth();
